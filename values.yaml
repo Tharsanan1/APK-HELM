@@ -1,0 +1,32 @@
+# Default values for apk-helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+
+wso2:
+  apk:
+    cp:
+      devportal:
+        deployment:
+          replicas: 2
+          imagePullPolicy: IfNotPresent
+          image: rakhitharr/apk-devportal:0.1.0
+        ingress:
+          path: /api/am/devportal
+      admin:
+        deployment:
+          replicas: 2
+          imagePullPolicy: IfNotPresent
+          image: rakhitharr/apk-admin:0.1.0
+        ingress:
+          path: /api/am/admin
+      publisher:
+        deployment:
+          replicas: 2
+          imagePullPolicy: IfNotPresent
+          image: rakhitharr/apk-publisher:0.1.0
+        ingress:
+          path: /api/am/publisher
+      cloudNativePG:
+        instances: 1

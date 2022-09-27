@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dev-portal-ds-service
+  namespace : {{ .Release.Namespace }}
+spec:
+  # label keys and values that must match in order to receive traffic for this service
+  selector:
+    app: dev-portal-ds
+  ports:
+    # ports that this service should serve on
+    - name: pass-through-http
+      protocol: TCP
+      port: 8280
+    - name: pass-through-https
+      protocol: TCP
+      port: 8243
+    - name: servlet-http
+      protocol: TCP
+      port: 9763
+    - name: servlet-https
+      protocol: TCP
+      port: 9443
+    - name: websub-http
+      protocol: TCP
+      port: 9021
+    - name: websub-https
+      protocol: TCP
+      port: 8021

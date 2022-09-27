@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-portal-ds-deployment
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.wso2.apk.cp.devportal.deployment.replicas }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: dev-portal-ds
+  template:
+    metadata:
+      labels:
+        app: dev-portal-ds
+    spec:
+      containers:
+        - name: dev-portal-ds
+          image: {{ .Values.wso2.apk.cp.devportal.deployment.image }}
+          imagePullPolicy: {{ .Values.wso2.apk.cp.devportal.deployment.imagePullPolicy }}
+          ports:
+            - containerPort: 9443
+              protocol: "TCP"

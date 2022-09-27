@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: publisher-ds-deployment
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.wso2.apk.cp.publisher.deployment.replicas }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: publisher-ds
+  template:
+    metadata:
+      labels:
+        app: publisher-ds
+    spec:
+      containers:
+        - name: publisher-ds
+          image: {{ .Values.wso2.apk.cp.publisher.deployment.image }}
+          imagePullPolicy: {{ .Values.wso2.apk.cp.publisher.deployment.imagePullPolicy }}
+          ports:
+            - containerPort: 9443
+              protocol: "TCP"

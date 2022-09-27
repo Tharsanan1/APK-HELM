@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-ds-deployment
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.wso2.apk.cp.admin.deployment.replicas }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: admin-ds
+  template:
+    metadata:
+      labels:
+        app: admin-ds
+    spec:
+      containers:
+        - name: admin-ds
+          image: {{ .Values.wso2.apk.cp.admin.deployment.image }}
+          imagePullPolicy: {{ .Values.wso2.apk.cp.admin.deployment.imagePullPolicy }}
+          ports:
+            - containerPort: 9443
+              protocol: "TCP"

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin-ds-service
+  namespace : {{ .Release.Namespace }}
+spec:
+  # label keys and values that must match in order to receive traffic for this service
+  selector:
+    app: admin-ds
+  ports:
+    - name: servlet-https
+      protocol: TCP
+      port: 9443

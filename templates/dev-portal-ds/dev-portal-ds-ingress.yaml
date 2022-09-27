@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dev-portal-ds-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: {{ .Values.wso2.apk.cp.devportal.ingress.path }}
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-portal-ds-service
+                port:
+                  number: 9443
