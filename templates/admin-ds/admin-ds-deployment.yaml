@@ -9,11 +9,11 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: admin-ds
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" "admin") | indent 6}}
   template:
     metadata:
       labels:
-        app: admin-ds
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" "admin") | indent 8}}
     spec:
       containers:
         - name: admin-ds

@@ -6,7 +6,7 @@ metadata:
 spec:
   # label keys and values that must match in order to receive traffic for this service
   selector:
-    app: publisher-ds
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" "publisher") | indent 4}}
   ports:
     # ports that this service should serve on
     - name: servlet-https
