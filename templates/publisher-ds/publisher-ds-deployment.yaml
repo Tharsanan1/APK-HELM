@@ -9,11 +9,11 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" "publisher") | indent 6}}
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.publisher.appName ) | indent 6}}
   template:
     metadata:
       labels:
-{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" "publisher") | indent 8}}
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.publisher.appName ) | indent 8}}
     spec:
       containers:
         - name: publisher-ds

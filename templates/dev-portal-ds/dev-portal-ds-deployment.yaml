@@ -9,11 +9,11 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" "devportal") | indent 6}}
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.devportal.appName ) | indent 6}}
   template:
     metadata:
       labels:
-{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" "devportal") | indent 8}}
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.devportal.appName ) | indent 8}}
     spec:
       containers:
         - name: dev-portal-ds

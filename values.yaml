@@ -8,6 +8,7 @@ wso2:
   apk:
     cp:
       devportal:
+        appName: "devportal-ds"
         deployment:
           replicas: 1
           imagePullPolicy: IfNotPresent
@@ -15,6 +16,7 @@ wso2:
         ingress:
           path: /api/am/devportal
       admin:
+        appName: "admin-ds"
         deployment:
           replicas: 1
           imagePullPolicy: IfNotPresent
@@ -22,6 +24,7 @@ wso2:
         ingress:
           path: /api/am/admin
       publisher:
+        appName: "publisher-ds"
         deployment:
           replicas: 1
           imagePullPolicy: IfNotPresent
