@@ -31,5 +31,8 @@ wso2:
           image: rakhitharr/apk-publisher:0.1.0
         ingress:
           path: /api/am/publisher
-      cloudNativePG:
+      cnpg:
         instances: 1
+        clusterName: cluster-example
+        appUserPassword: password
+        superUserPassword: password

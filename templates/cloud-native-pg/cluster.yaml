@@ -1,9 +1,9 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: cluster-example
+  name: {{ .Values.wso2.apk.cp.cnpg.clusterName }}
 spec:
-  instances: {{ .Values.wso2.apk.cp.cloudNativePG.instances }}
+  instances: {{ .Values.wso2.apk.cp.cnpg.instances }}
   primaryUpdateStrategy: unsupervised
   storage:
     size: 1Gi
