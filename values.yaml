@@ -10,6 +10,18 @@ wso2:
       devportal:
         appName: "devportal-ds"
         deployment:
+          readinessProbe:
+            path: /api/am/devportal/v2/apis?limit=2&offset=2
+            port: 9443
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            failureThreshold: 5
+          livenessProbe:
+            path: /api/am/devportal/v2/apis?limit=2&offset=2
+            port: 9443
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            failureThreshold: 5
           strategy: Recreate
           replicas: 1
           imagePullPolicy: IfNotPresent
@@ -19,6 +31,18 @@ wso2:
       admin:
         appName: "admin-ds"
         deployment:
+          readinessProbe:
+            path: /api/am/admin/v3/settings?limit=2&offset=2
+            port: 9443
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            failureThreshold: 5
+          livenessProbe:
+            path: /api/am/admin/v3/settings?limit=2&offset=2
+            port: 9443
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            failureThreshold: 5
           strategy: Recreate
           replicas: 1
           imagePullPolicy: IfNotPresent
@@ -28,6 +52,18 @@ wso2:
       publisher:
         appName: "publisher-ds"
         deployment:
+          readinessProbe:
+            path: /api/am/publisher/v3/apis?limit=2&offset=2&sortBy=name&sortOrder=1
+            port: 9443
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            failureThreshold: 5
+          livenessProbe:
+            path: /api/am/publisher/v3/apis?limit=2&offset=2&sortBy=name&sortOrder=1
+            port: 9443
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            failureThreshold: 5
           strategy: Recreate
           replicas: 1
           imagePullPolicy: IfNotPresent

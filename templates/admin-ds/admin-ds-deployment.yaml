@@ -22,3 +22,5 @@ spec:
           ports:
             - containerPort: 9443
               protocol: "TCP"
+{{ include "apl-helm.deployment.readinessProbe.http" .Values.wso2.apk.cp.admin.deployment | indent 10 }}
+{{ include "apl-helm.deployment.livenessProbe.http" .Values.wso2.apk.cp.admin.deployment | indent 10 }}
