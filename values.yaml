@@ -10,6 +10,13 @@ wso2:
       devportal:
         appName: "devportal-ds"
         deployment:
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1028Mi"
+              cpu: "1000m"
           readinessProbe:
             path: /api/am/devportal/v2/apis?limit=2&offset=2
             port: 9443
@@ -31,6 +38,13 @@ wso2:
       admin:
         appName: "admin-ds"
         deployment:
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1028Mi"
+              cpu: "1000m"
           readinessProbe:
             path: /api/am/admin/v3/settings?limit=2&offset=2
             port: 9443
@@ -52,6 +66,13 @@ wso2:
       publisher:
         appName: "publisher-ds"
         deployment:
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1028Mi"
+              cpu: "1000m"
           readinessProbe:
             path: /api/am/publisher/v3/apis?limit=2&offset=2&sortBy=name&sortOrder=1
             port: 9443

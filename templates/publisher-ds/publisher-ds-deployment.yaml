@@ -24,3 +24,4 @@ spec:
               protocol: "TCP"
 {{ include "apl-helm.deployment.readinessProbe.http" .Values.wso2.apk.cp.publisher.deployment | indent 10 }}
 {{ include "apl-helm.deployment.livenessProbe.http" .Values.wso2.apk.cp.publisher.deployment | indent 10 }}
+{{ include "apl-helm.deployment.resources" .Values.wso2.apk.cp.publisher.deployment.resources | indent 10 }}
