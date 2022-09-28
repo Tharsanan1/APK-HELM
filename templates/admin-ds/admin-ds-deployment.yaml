@@ -6,7 +6,7 @@ metadata:
 spec:
   replicas: {{ .Values.wso2.apk.cp.admin.deployment.replicas }}
   strategy:
-    type: Recreate
+    type: {{ .Values.wso2.apk.cp.admin.deployment.strategy }}
   selector:
     matchLabels:
 {{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.admin.appName ) | indent 6}}

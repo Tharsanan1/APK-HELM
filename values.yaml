@@ -10,6 +10,7 @@ wso2:
       devportal:
         appName: "devportal-ds"
         deployment:
+          strategy: Recreate
           replicas: 1
           imagePullPolicy: IfNotPresent
           image: rakhitharr/apk-devportal:0.1.0
@@ -18,6 +19,7 @@ wso2:
       admin:
         appName: "admin-ds"
         deployment:
+          strategy: Recreate
           replicas: 1
           imagePullPolicy: IfNotPresent
           image: rakhitharr/apk-admin:0.1.0
@@ -26,6 +28,7 @@ wso2:
       publisher:
         appName: "publisher-ds"
         deployment:
+          strategy: Recreate
           replicas: 1
           imagePullPolicy: IfNotPresent
           image: rakhitharr/apk-publisher:0.1.0
