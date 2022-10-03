@@ -13,6 +13,7 @@ spec:
   template:
     metadata:
       labels:
+        role: ds
 {{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.devportal.appName ) | indent 8}}
     spec:
       containers:

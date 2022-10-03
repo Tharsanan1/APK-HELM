@@ -12,4 +12,4 @@ spec:
               service:
                 name: sts-ds-service
                 port:
-                  number: 9443
+                  number: 9446

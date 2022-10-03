@@ -10,5 +10,5 @@ spec:
   ports:
     - name: servlet-https
       protocol: TCP
-      port: 9443
+      port: 9446
       

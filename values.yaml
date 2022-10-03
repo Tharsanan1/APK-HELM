@@ -102,23 +102,23 @@ wso2:
               memory: "1028Mi"
               cpu: "1000m"
           readinessProbe:
-            path: /test
-            port: 9443
+            path: /health
+            port: 8080
             initialDelaySeconds: 20
             periodSeconds: 20
             failureThreshold: 5
           livenessProbe:
-            path: /test
-            port: 9443
+            path: /health
+            port: 8080
             initialDelaySeconds: 20
             periodSeconds: 20
             failureThreshold: 5
           strategy: Recreate
           replicas: 1
           imagePullPolicy: IfNotPresent
-          image: test
+          image: lakshithag/apk-sts
         ingress:
-          path: /sts
+          path: /auth
       cnpg:
         instances: 1
         clusterName: cluster-example
