@@ -118,7 +118,7 @@ wso2:
           imagePullPolicy: IfNotPresent
           image: lakshithag/apk-sts
         ingress:
-          path:  /oauth2/token
+          path:  /api/am/sts
       cnpg:
         instances: 1
         clusterName: cluster-example
