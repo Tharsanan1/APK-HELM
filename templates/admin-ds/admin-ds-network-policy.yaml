@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: admin-ds-network-policy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.admin.appName ) | indent 6}}
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            networkPolicyId: {{ .Values.wso2.apk.cp.cnpg.npi }}
+      ports:
+        - protocol: TCP
+          port: 5432
+    - to:
+      - podSelector:
+          matchLabels:
+            networkPolicyId: {{ .Values.wso2.apk.cp.sts.deployment.npi }}
+      ports:
+        - protocol: TCP
+          port: 9446

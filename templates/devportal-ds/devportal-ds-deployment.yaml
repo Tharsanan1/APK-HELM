@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        role: ds
+        networkPolicyId: {{ .Values.wso2.apk.cp.sts.deployment.npi }}
 {{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.devportal.appName ) | indent 8}}
     spec:
       containers:

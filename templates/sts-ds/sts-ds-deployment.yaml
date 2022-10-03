@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        role: ds
+        networkPolicyId: {{ .Values.wso2.apk.cp.sts.deployment.npi }}
 {{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.sts.appName ) | indent 8}}
     spec:
       containers:
@@ -21,7 +21,7 @@ spec:
           image: {{ .Values.wso2.apk.cp.sts.deployment.image }}
           imagePullPolicy: {{ .Values.wso2.apk.cp.sts.deployment.imagePullPolicy }}
           ports:
-            - containerPort: 9446
+            - containerPort: 9443
               protocol: "TCP"
             - containerPort: 8080
               protocol: "TCP"

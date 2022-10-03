@@ -10,6 +10,7 @@ wso2:
       devportal:
         appName: "devportal-ds"
         deployment:
+          npi: devportal-ds-npi
           resources:
             requests:
               memory: "512Mi"
@@ -38,6 +39,7 @@ wso2:
       admin:
         appName: "admin-ds"
         deployment:
+          npi: admin-ds-npi
           resources:
             requests:
               memory: "512Mi"
@@ -66,6 +68,7 @@ wso2:
       publisher:
         appName: "publisher-ds"
         deployment:
+          npi: publisher-ds-npi
           resources:
             requests:
               memory: "512Mi"
@@ -94,6 +97,7 @@ wso2:
       sts:
         appName: "sts-ds"
         deployment:
+          npi: sts-ds-npi
           resources:
             requests:
               memory: "512Mi"
@@ -120,6 +124,7 @@ wso2:
         ingress:
           path:  /api/am/sts
       cnpg:
+        npi: cnpg-npi
         instances: 1
         clusterName: cluster-example
         appUserPassword: password
