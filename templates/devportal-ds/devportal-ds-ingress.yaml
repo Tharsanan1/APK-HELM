@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: dev-portal-ds-ingress
 spec:
+  ingressClassName: nginx
   rules:
     - http:
         paths:
