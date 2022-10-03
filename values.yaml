@@ -116,7 +116,7 @@ wso2:
           strategy: Recreate
           replicas: 1
           imagePullPolicy: IfNotPresent
-          image: rakhitharr/apk-admin:0.1.0
+          image: test
         ingress:
           path: /sts
       cnpg:
