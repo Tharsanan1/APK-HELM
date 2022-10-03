@@ -1,13 +1,13 @@
-apiVersion: postgresql.cnpg.io/v1
-kind: Cluster
-metadata:
-  name: {{ .Values.wso2.apk.cp.cnpg.clusterName }}
-  labels:
-    environment: production
-    workload: database
-    app: sso
-spec:
-  instances: {{ .Values.wso2.apk.cp.cnpg.instances }}
-  primaryUpdateStrategy: unsupervised
-  storage:
-    size: 1Gi
+# apiVersion: postgresql.cnpg.io/v1
+# kind: Cluster
+# metadata:
+#   name: {{ .Values.wso2.apk.cp.cnpg.clusterName }}
+#   labels:
+#     environment: production
+#     workload: database
+#     app: sso
+# spec:
+#   instances: {{ .Values.wso2.apk.cp.cnpg.instances }}
+#   primaryUpdateStrategy: unsupervised
+#   storage:
+#     size: 1Gi
