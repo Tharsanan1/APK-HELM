@@ -13,5 +13,6 @@
 ## Steps to deploy APK DS servers and CloudNativePG
 
 1. Clone the repo and cd into the APK-HELM folder.
-2. Execute ``` helm dependency build``` command to download the dependent charts.
-3. Now execute ```helm install apk-test .``` to install the APK DS servers and CloudNativePG
+2. Execute ``` helm repo add cnpg https://cloudnative-pg.github.io/charts ```
+3. Execute ``` helm dependency build``` command to download the dependent charts.
+4. Now execute ```helm install apk-test .``` to install the APK DS servers and CloudNativePG
