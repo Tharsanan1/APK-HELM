@@ -91,6 +91,34 @@ wso2:
           image: rakhitharr/apk-publisher:0.1.0
         ingress:
           path: /api/am/publisher
+      sts:
+        appName: "sts-ds"
+        deployment:
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1028Mi"
+              cpu: "1000m"
+          readinessProbe:
+            path: /test
+            port: 9443
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            failureThreshold: 5
+          livenessProbe:
+            path: /test
+            port: 9443
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            failureThreshold: 5
+          strategy: Recreate
+          replicas: 1
+          imagePullPolicy: IfNotPresent
+          image: rakhitharr/apk-admin:0.1.0
+        ingress:
+          path: /sts
       cnpg:
         instances: 1
         clusterName: cluster-example
