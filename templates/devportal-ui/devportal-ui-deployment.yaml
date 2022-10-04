@@ -1,0 +1,39 @@
+{{- if .Values.wso2.apk.cp.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devportal-ui-deployment
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.wso2.apk.cp.devportalUI.deployment.replicas }}
+  strategy:
+    type: {{ .Values.wso2.apk.cp.devportalUI.deployment.strategy }}
+  selector:
+    matchLabels:
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.devportalUI.appName ) | indent 6}}
+  template:
+    metadata:
+      labels:
+        networkPolicyId: {{ .Values.wso2.apk.cp.devportalUI.deployment.npi }}
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.devportalUI.appName ) | indent 8}}
+    spec:
+      containers:
+        - name: devportal-ui
+          image: {{ .Values.wso2.apk.cp.devportalUI.deployment.image }}
+          imagePullPolicy: {{ .Values.wso2.apk.cp.devportalUI.deployment.imagePullPolicy }}
+          ports:
+            - containerPort: 4000
+              protocol: "TCP"
+          volumeMounts:
+            - name: devportal-ui-conf-volume
+              mountPath: /app/client/public/Settings.js
+              subPath: Settings.js
+{{ include "apl-helm.deployment.resources" .Values.wso2.apk.cp.devportalUI.deployment.resources | indent 10 }}
+      volumes:
+        - name: devportal-ui-conf-volume
+          configMap:
+            name: devportal-ui-conf
+            items:
+            - key: Settings.js
+              path: Settings.js
+{{- end -}}

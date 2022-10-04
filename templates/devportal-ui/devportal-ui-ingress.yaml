@@ -1,0 +1,21 @@
+{{- if .Values.wso2.apk.cp.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: devportal-ui-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  ingressClassName: nginx  
+  rules:
+    - host: {{ .Values.wso2.apk.cp.devportalUI.ingress.host }}
+      http:
+        paths:
+          - path: {{ .Values.wso2.apk.cp.devportalUI.ingress.path }}
+            pathType: Prefix
+            backend:
+              service:
+                name: devportal-ui-service
+                port:
+                  number: 4000
+{{- end -}}

@@ -7,6 +7,7 @@
 wso2:
   apk:
     cp:
+      enabled: true
       devportal:
         appName: "devportal-ds"
         deployment:
@@ -123,6 +124,36 @@ wso2:
           image: lakshithag/apk-sts
         ingress:
           path:  /api/am/sts
+      devportalUI:
+        appName: "devportal-ui"
+        deployment:
+          npi: devportal-ui-npi
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1028Mi"
+              cpu: "1000m"
+          readinessProbe:
+            path: /
+            port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            failureThreshold: 5
+          livenessProbe:
+            path: /
+            port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            failureThreshold: 5
+          strategy: Recreate
+          replicas: 1
+          imagePullPolicy: Always
+          image: chanaka3d/portals:linux1.0.0
+        ingress:
+          path:  /
+          host: portal.ui.wso2
       cnpg:
         npi: cnpg-npi
         instances: 1

@@ -1,3 +1,4 @@
+{{- if .Values.wso2.apk.cp.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -27,3 +28,4 @@ spec:
     - name: websub-https
       protocol: TCP
       port: 8021
+{{- end -}}

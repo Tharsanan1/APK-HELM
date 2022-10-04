@@ -1,3 +1,4 @@
+{{- if .Values.wso2.apk.cp.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,3 +29,4 @@ spec:
 {{ include "apl-helm.deployment.readinessProbe.http" .Values.wso2.apk.cp.sts.deployment | indent 10 }}
 {{ include "apl-helm.deployment.livenessProbe.http" .Values.wso2.apk.cp.sts.deployment | indent 10 }}
 {{ include "apl-helm.deployment.resources" .Values.wso2.apk.cp.sts.deployment.resources | indent 10 }}
+{{- end -}}

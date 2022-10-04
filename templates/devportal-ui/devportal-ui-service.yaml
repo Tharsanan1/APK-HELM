@@ -2,14 +2,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: admin-ds-service
+  name: devportal-ui-service
   namespace : {{ .Release.Namespace }}
 spec:
+  type: NodePort
   # label keys and values that must match in order to receive traffic for this service
   selector:
-{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.admin.appName ) | indent 4}}
+{{ include "apk-helm.pod.selectorLabels" (dict "root" . "app" .Values.wso2.apk.cp.devportalUI.appName ) | indent 4}}
   ports:
     - name: servlet-https
       protocol: TCP
-      port: 9443
+      port: 4000
+      nodePort: 30007
 {{- end -}}
