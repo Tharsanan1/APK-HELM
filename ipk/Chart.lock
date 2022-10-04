@@ -1,0 +1,6 @@
+dependencies:
+- name: ipk
+  repository: http://localhost:8082
+  version: 6.0.0-1
+digest: sha256:8f8ed26cd4a293afe1535878a37f613e476838b47e9ccebad39b5c87acf17316
+generated: "2022-10-04T14:43:09.356119828+05:30"
