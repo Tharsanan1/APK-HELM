@@ -160,3 +160,18 @@ wso2:
         clusterName: cluster-example
         appUserPassword: password
         superUserPassword: password
+postgresql:
+  auth:
+    postgresPassword: "test1"
+  primary:
+    initdb:
+      scriptsConfigMap: postgres-initdb-scripts-configmap
+      user: postgres
+      password: "test1"
+  image:
+    debug: true
+ipk:
+  wso2:
+    deployment:
+      wso2is:
+        replicas: 1

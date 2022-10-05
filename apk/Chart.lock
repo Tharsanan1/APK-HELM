@@ -1,9 +1,9 @@
 dependencies:
-- name: postgres-apk
-  repository: file://../databases/postgres-apk
-  version: 0.1.0
-- name: ipk-apk
-  repository: file://../ipk
-  version: 0.1.0
-digest: sha256:2ffdad814345267806ee4937b7ad1a2ed29a19033698fc2af7930d272c734a6c
-generated: "2022-10-04T15:52:28.502286497+05:30"
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 11.9.6
+- name: ipk
+  repository: http://localhost:8082
+  version: 6.0.0-1
+digest: sha256:4a516628be71bb87f15cb718db3b58618b543b988a873a0edbfea105ea8fb50f
+generated: "2022-10-05T12:50:47.880796781+05:30"
